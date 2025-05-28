@@ -19,6 +19,9 @@ public class TestBase {
         Configuration.browser = BrowserstackDriver.class.getName();
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
+
+        String platform = System.getProperty("platform", "android");
+        System.out.println("Running tests on platform: " + platform);
     }
 
     @BeforeEach
@@ -30,7 +33,7 @@ public class TestBase {
     @AfterEach
     void addAttachments() {
         String sessionId = Selenide.sessionId().toString();
-        System.out.println(sessionId);
+        System.out.println("Session ID: " + sessionId);
 
 //        Attach.screenshotAs("Last screenshot"); // todo fix
         Attach.pageSource();
