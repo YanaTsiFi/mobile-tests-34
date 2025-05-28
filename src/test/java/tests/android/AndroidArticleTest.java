@@ -1,5 +1,6 @@
 package tests.android;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
@@ -10,6 +11,10 @@ import static io.qameta.allure.Allure.step;
 
 public class AndroidArticleTest extends TestBase {
 
+    @BeforeAll
+    static void setup() {
+        System.setProperty("platform", "android");
+    }
     @Test
     void openSelenideTest() {
         step("Type search", () -> {

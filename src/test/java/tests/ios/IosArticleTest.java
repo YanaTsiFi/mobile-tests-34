@@ -1,5 +1,6 @@
 package tests.ios;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
@@ -9,6 +10,11 @@ import static io.appium.java_client.AppiumBy.*;
 import static io.qameta.allure.Allure.step;
 
 public class IosArticleTest extends TestBase {
+
+    @BeforeAll
+    static void setup() {
+        System.setProperty("platform", "ios");
+    }
 
     @Test
     void openSelenideTest() {
