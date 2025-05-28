@@ -68,4 +68,3 @@ tasks.register('mobileTest') {
     group = 'verification'
     description = 'Run tests on both Android and iOS devices sequentially'
 }
-

@@ -47,4 +47,3 @@ public class BrowserstackDriver implements WebDriverProvider {
         }
     }
 }
-
