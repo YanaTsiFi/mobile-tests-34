@@ -3,8 +3,9 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:config.properties"
+        "file:src/test/resources/browserstack-sample.properties"
 })
+
 public interface BrowserstackConfig extends Config {
     @Key("browserstack.user")
     String user();

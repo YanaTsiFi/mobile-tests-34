@@ -46,25 +46,50 @@ tasks.withType(Test).configureEach {
     useJUnitPlatform()
 
     testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
+        events "started", "skipped", "failed", "standard_error", "standard_out"
+        exceptionFormat "short"
     }
+}
+
+tasks.register('browserstackTest', Test) {
+    useJUnitPlatform()
+    systemProperty 'deviceHost', 'browserstack'
+    include 'tests/browserstack/**'
+}
+
+tasks.register('emulationTest', Test) {
+    useJUnitPlatform()
+    systemProperty 'deviceHost', 'emulation'
+    include 'tests/emulation/**'
+}
+
+tasks.register('realDeviceTest', Test) {
+    useJUnitPlatform()
+    systemProperty 'deviceHost', 'real'
+    include 'tests/real/**'
 }
 
 tasks.register('androidTest', Test) {
     useJUnitPlatform()
     systemProperty 'platform', 'android'
+    include 'tests/**/*Test*.class'
+    exclude 'tests/browserstack/Ios*'
 }
 
 tasks.register('iosTest', Test) {
     useJUnitPlatform()
     systemProperty 'platform', 'ios'
+    include 'tests/browserstack/Ios*'
 }
 
 tasks.register('mobileTest') {
+    dependsOn 'browserstackTest', 'emulationTest', 'realDeviceTest'
+    group = 'verification'
+    description = 'Run tests on all mobile platforms'
+}
+
+tasks.register('fullMobileTest') {
     dependsOn 'androidTest', 'iosTest'
     group = 'verification'
-    description = 'Run tests on both Android and iOS devices sequentially'
+    description = 'Run all Android and iOS tests'
 }
