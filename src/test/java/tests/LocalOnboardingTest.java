@@ -1,5 +1,6 @@
-package tests.emulation;
+package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -7,10 +8,9 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class OnboardingTest extends TestBaseEmulation {
-
-    @SuppressWarnings("unused")
-    private static final String APK_PATH = "src/test/resources/apk/app-alpha-universal-release.apk";
+@Tag("android")
+@Tag("local")
+public class LocalOnboardingTest extends TestBase {
 
     @Test
     void completeOnboardingScreens() {

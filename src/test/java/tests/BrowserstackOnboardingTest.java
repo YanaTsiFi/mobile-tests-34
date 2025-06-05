@@ -1,5 +1,7 @@
-package tests.real;
+package tests;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -7,10 +9,13 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class OnboardingTest extends TestBaseReal {
+@Tag("browserstack")
+public class BrowserstackOnboardingTest extends TestBase {
 
-    @SuppressWarnings("unused")
-    private static final String APK_PATH = "src/test/resources/apk/app-alpha-universal-release.apk";
+    @BeforeAll
+    static void setup() {
+        System.setProperty("app", "bs://1bb42beb49de29f59bd2b394b41a732e932e7427");
+    }
 
     @Test
     void completeOnboardingScreens() {

@@ -3,9 +3,9 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:real.properties"
+        "classpath:local.properties"
 })
-public interface RealConfig extends Config {
+public interface LocalConfig extends Config {
     @Key("platform.name")
     String platformName();
 
