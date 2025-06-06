@@ -9,8 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.appium.java_client.AppiumBy.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("android")
-@Tag("browserstack")
+@Tag("android_browserstack")
 public class SearchTests extends TestBase {
 
     @BeforeAll

@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("browserstack")
+@Tag("android_browserstack")
 public class BrowserstackOnboardingTest extends TestBase {
 
     @BeforeAll

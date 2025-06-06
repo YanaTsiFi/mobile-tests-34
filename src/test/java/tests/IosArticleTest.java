@@ -10,8 +10,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static io.appium.java_client.AppiumBy.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("ios")
-@Tag("browserstack")
+@Tag("ios_browserstack")
 public class IosArticleTest extends TestBase {
 
     @BeforeAll
